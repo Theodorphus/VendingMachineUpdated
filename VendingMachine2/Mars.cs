@@ -1,7 +1,8 @@
 ﻿using System;
 namespace VendingMachine;
 
-class Coke : Product
+ class Mars : Product
+
 {
 
     public override void Examine()
@@ -11,11 +12,7 @@ class Coke : Product
 
     public override void Use()
     {
-        Console.WriteLine("\n" + Name + " is used by opening the lid and drinking it");
+        Console.WriteLine("\n" + Name + " is used by removing the plastic and eating it");
     }
 
 }
-
-
-
-

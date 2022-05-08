@@ -4,16 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-namespace VendingMachine2;
+namespace VendingMachine;
 
 public interface Ivending
 {
     void Purchase(char selection);
 
-
     void ShowAll();
-
-
+ 
     void InsertMoney(int money);
 
     void EndTransaction();
@@ -21,7 +19,6 @@ public interface Ivending
 }
 public class VendingMachine : Ivending
 {
-
 
 
     public int minCost = 1;
@@ -32,11 +29,11 @@ public class VendingMachine : Ivending
         MoneyPool = 0;
     }
 
+    private readonly int[] cash = { 1, 5, 10, 20, 50, 100, 500, 1000 };
+
     public void InsertMoney(int money)
     {
 
-        int[] cash = { 1, 5, 10, 20, 50, 100, 500, 1000 };
-        IReadOnlyCollection<int> result = Array.AsReadOnly(cash);
 
         switch (money)
         {
@@ -66,8 +63,15 @@ public class VendingMachine : Ivending
                 break;
             default:
                 Console.WriteLine("Invalid Entry.");
+
+             
                 break;
         }
+    }
+
+    internal void Log()
+    {
+        throw new NotImplementedException();
     }
 
     public bool checkTotal()
@@ -143,7 +147,6 @@ public class VendingMachine : Ivending
                     keepRun = false;
 
 
-
                     break;
 
                 case 'P':
@@ -181,7 +184,6 @@ public class VendingMachine : Ivending
                     }
 
                     keepRun = false;
-
 
 
                     break;
@@ -223,6 +225,8 @@ public class VendingMachine : Ivending
         {
             Console.Clear();
 
+
+
             Console.WriteLine("Please insert one of the amounts: (1, 5, 10, 20, 50, 100, 500, 1000)");
             InsertMoney(Convert.ToInt32(Console.ReadLine()));
 
@@ -231,12 +235,13 @@ public class VendingMachine : Ivending
             Console.ReadLine();
 
         }
+  
+    }
 
-
-
-
-
-
+    public void Log(Exception ex)
+    {
+        Console.WriteLine("Error Message: " + ex.Message);
+        Console.WriteLine("StackTrace: " + ex.StackTrace);
     }
 
 }

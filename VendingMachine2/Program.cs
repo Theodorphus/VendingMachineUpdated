@@ -1,7 +1,7 @@
 ﻿using System;
-using VendingMachine2;
+using VendingMachine;
 
-namespace VendingMachine2;
+namespace VendingMachine;
 
 
 public class Program
@@ -21,14 +21,28 @@ public class Program
         while (vendingMachine.checkTotal() == true)
         {
 
-            vendingMachine.ShowAll();
 
-            Console.ReadLine();
+            try
+            {
+                vendingMachine.ShowAll();
 
+                Console.ReadLine();
+            }
+
+            catch (FormatException ex)
+
+            {
+
+
+                Console.WriteLine(ex +  " Try again with a correct input");
+            }
+
+           
         }
 
 
-
+        vendingMachine.Log();
+    }
 
 
 
@@ -36,4 +50,4 @@ public class Program
 
 
 
-}
+

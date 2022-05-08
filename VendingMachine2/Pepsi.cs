@@ -1,7 +1,7 @@
 ﻿using System;
 namespace VendingMachine;
 
-class Coke : Product
+ class Pepsi : Product
 {
 
     public override void Examine()
@@ -15,7 +15,3 @@ class Coke : Product
     }
 
 }
-
-
-
-

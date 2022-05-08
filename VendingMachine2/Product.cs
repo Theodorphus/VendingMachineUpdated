@@ -1,8 +1,8 @@
 ﻿using System;
-namespace VendingMachine2;
+namespace VendingMachine;
 abstract class Product
 {
-    public string Name { get; set; }
+    public string? Name { get; set; }
     public int Price { get; set; }
 
     public abstract void Examine();
